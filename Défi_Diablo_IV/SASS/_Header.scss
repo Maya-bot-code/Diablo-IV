@@ -1,0 +1,118 @@
+header {
+    background-image: url(../img/fond.png);
+    @include fondimage;
+    background-position-y: -4vw;
+    overflow: hidden;
+
+    .logo {
+        position: absolute;
+        width: 30%;
+        top: 50%;
+        left: 5%;
+        transform: translateY(-50%);
+    }
+
+    nav {
+        
+        .menu {
+            position: relative;
+            width: 3.5vw;
+            height: 2.5vw;
+            top: 3vw;
+            left: 91vw;
+
+            .bar {
+                position: absolute;
+                width: 100%;
+                background-color: white;
+                height: 2px;
+            }
+
+            .bar:first-of-type{
+                top: 0;
+            }
+
+            .bar:nth-of-type(2){
+                top: 50%;
+            }
+
+            .bar:nth-of-type(3){
+                top: 100%;
+            }
+
+        }
+
+        .menu:hover .bar:first-of-type{
+            animation: menu-croix-haut-start forwards $temps-menu;
+        }
+
+        .menu:hover .bar:nth-of-type(2) {
+            display: none;
+        }
+
+        .menu:hover .bar:nth-of-type(3) {
+            animation: menu-croix-bas-start forwards $temps-menu;
+        }
+
+
+
+        .menu:not(:hover) .bar:first-of-type {
+            animation: menu-croix-haut-stop forwards $temps-menu;
+        } 
+
+        .menu:not(:hover) .bar:nth-of-type(3) {
+            animation: menu-croix-bas-stop forwards $temps-menu;
+        }
+
+
+        .menu:hover .liens {
+            animation: navigation-start forwards 1s;
+        }
+
+        .menu:not(:hover) .liens {
+            animation: navigation-stop forwards 1s;
+        }
+
+
+        .liens {
+            position: relative;
+            left: 10vw;
+            top: 2.5vw;
+            width: 22vw;
+            height: 37vw;
+
+            a {
+                text-decoration: none;
+            }
+
+            h1 {
+                position: relative;
+                top: 5vw;
+                font-size: 2.5vw;
+                font-family: DiabloLight;
+                color: $gris;
+                margin-bottom: 3.5vw;
+            }
+
+            .ligne {
+                @include ligne;
+                bottom: 7vw;
+            }
+
+            .social {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                bottom: 0;
+            }
+
+            img {
+                width: 4vw;
+                padding: 0.5vw;
+            }
+        }
+    }
+
+
+}

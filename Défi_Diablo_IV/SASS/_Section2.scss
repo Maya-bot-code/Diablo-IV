@@ -1,0 +1,122 @@
+@import '_Variables.scss';
+
+section:last-of-type {
+
+    h1, h3{
+        text-align: center;
+    }
+
+    h3{
+        width: 70%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .gameplay{
+        margin-top: 3vw;
+        display: flex;
+        flex-direction: row;
+
+        h1{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        div{
+            position: relative;
+            width: 45vw;
+            height: 35vw;
+            margin: 3.5vw;
+            margin-top: 8vw;
+        }
+
+        p{
+            width: 100%;
+        }
+
+        iframe{
+            width: 100%;
+            height: 18vw;
+            bottom: 0;
+            position: absolute;
+        }
+    }
+
+    h3 {
+        font-family: Diablo;
+        color: white;
+        font-size: 2vw;
+    }
+
+    .pass {
+
+        .grid{
+            display: grid;
+            height: 50vw;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 2vw;
+            margin: 3vw;
+        }
+
+        #gold {
+            background-image: url(../img/passe3.png);
+            @include bg-grid;
+            background-position-x: -13vw;
+            grid-column: 1/2;
+            grid-row: 1/3;
+        }
+
+        #silver{
+            background-image: url(../img/pass1.png);
+            @include bg-grid;
+            grid-column: 2/3;
+            grid-row: 1/2;
+        }
+
+        #emerald{
+            background-image: url(../img/pass2.png);
+            @include bg-grid;
+            grid-column: 2/3;
+            grid-row: 2/3;
+            bottom: 0;
+        }
+
+        .edition {
+            z-index: 2;
+            position: absolute;
+            font-family: Bildad;
+            color: white;
+            font-size: 5vw;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($vert, 0.3);
+            top: 100%;
+            
+            h6 {
+                margin: 0;
+                margin-bottom: 1vw;
+                margin-top: 2vw;
+            }
+        }
+
+        #gold:hover .edition, #silver:hover .edition, #emerald:hover .edition{
+            animation: edition-prix-start forwards 1s;
+        }
+
+        #gold:not(:hover) .edition, #silver:not(:hover) .edition, #emerald:not(:hover) .edition{
+            animation: edition-prix-stop forwards 1s;
+        }
+
+        .ligne {
+            @include ligne;
+        }
+    }
+}
