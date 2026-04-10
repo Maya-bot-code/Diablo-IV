@@ -1,0 +1,330 @@
+/*Polices*/
+
+/*Gros titres*/
+@font-face {
+    font-family: Diablo;
+    src: url(../font/diablo.ttf);
+}
+
+/*Sous-titres*/
+@font-face {
+    font-family: Bildad;
+    src: url(../font/Bildad.ttf);
+}
+
+/*Boutons*/
+@font-face {
+    font-family: DiabloLight;
+    src: url(../font/DiabloLight.ttf);
+}
+
+/*Texte*/
+@font-face {
+    font-family: Roboto;
+    src: url(../font/Roboto-Thin.ttf);
+}
+
+/*----------------*/
+
+/*Couleurs*/
+
+$vert: rgb(153, 255, 0);
+$gris: rgb(194, 194, 194);
+
+
+/*Temps*/
+$temps-menu: 0.7s;
+$temps-esprits: 0.8s;
+
+/*----------------*/
+
+/*Ligne*/
+
+@mixin ligne {
+    background-color: white;
+    width: 50%;
+    height: 1px;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+/*-----------------*/
+
+/*Mixin*/
+
+@mixin fondimage {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    width: 100%;
+    height: 60vw;
+}
+
+/*Nouveautés texte*/
+
+@mixin texte {
+    position: absolute;
+    width: 35%;
+    left: 3%;
+    top: 10%;
+    line-height: 2.5vw;
+}
+
+/*----------------*/
+
+/*Familiers et Mercenaires*/
+
+@mixin background-position {
+    background-position-y: -4vw;
+    background-position-x: 15vw;
+} 
+
+/*------------------------*/
+
+
+/*Logo et bouton*/
+
+@mixin bandeau {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    bottom: 0;
+    background-color: black;
+
+    img {
+        width: 10%;
+    }
+
+    button {
+        @include bouton;
+    }
+
+    button:hover {
+        animation: bouton-couleur-start forwards 1s;
+    }
+
+    button:not(:hover) {
+        animation: bouton-couleur-stop forwards 1s;
+    }
+
+    a {
+        text-decoration: none;
+        white-space: nowrap;
+    }
+    
+}
+
+@mixin bouton {
+        background-color: $vert;
+        color: white;
+        font-family: Bildad;
+        height: 50%;
+        width: 35vw;
+        border-radius: 10px;
+        border: none;
+        font-size: 2vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 0.65vw;
+}
+
+/*-----------------------*/
+
+/*Grid image*/
+
+@mixin bg-grid{
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/*---------------------------------------*/
+
+/*Animation*/ 
+
+/*Menu*/
+
+@keyframes menu-croix-haut-start {
+    from {
+        transform: rotate(0deg) translate(0, 0);
+    }
+
+    to{
+        transform: rotate(45deg) translate(0.5vw, 1.25vw);
+    }
+}
+
+@keyframes menu-croix-bas-start {
+    from {
+        transform: rotate(0) translate(0, 0);
+    }
+
+    to {
+        transform: rotate(-45deg) translate(0.5vw, -1.25vw);
+    }
+}
+
+/*-----------------*/
+
+@keyframes menu-croix-haut-stop {
+    from {
+        transform: rotate(45deg) translate(0.5vw, 1.25vw);
+    }
+
+    to {
+        transform: rotate(0deg) translate(0, 0);
+    }
+}
+
+@keyframes menu-croix-bas-stop {
+    from {
+        transform: rotate(-45deg) translate(0.5vw, -1.25vw);
+    }
+
+    to {
+        transform: rotate(0) translate(0, 0);
+    }
+}
+
+/*------------------*/
+
+/*Navigation*/
+
+@keyframes navigation-start {
+    from {
+        left: 10vw;
+    }
+
+    to {
+        left: -16vw;
+    }
+}
+
+@keyframes navigation-stop {
+    from {
+        left: -16vw;
+    }
+
+    to {
+        left: 10vw;
+    }
+}
+
+/*bouton*/
+@keyframes bouton-couleur-start {
+    from { 
+        background-color: $vert;
+        color: white;
+        border: none;
+    }
+
+    to {
+        background-color: black;
+        color: $vert;
+        border: 1px solid $vert;
+    }
+}
+
+@keyframes bouton-couleur-stop {
+    from {
+        background-color: black;
+        color: $vert;
+        border: 1px solid $vert;
+    }
+
+    to {
+        background-color: $vert;
+        color: white;
+        border: none;
+    }
+}
+
+/*-------------------*/
+
+@keyframes edition-prix-start {
+    from {
+        top: 100%;
+    }
+
+    to {
+        top: 0%;
+    }
+}
+
+@keyframes edition-prix-stop {
+    from {
+        top: 0%;
+    }
+
+    to {
+        top: 100%;
+    }
+}
+
+
+/*---------------------------*/
+
+
+@keyframes esprit-texte-start {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/*-----------------------------*/
+
+@keyframes esprit-titre-start {
+    from {
+        transform: scale(1) translateY(0);
+        padding-left: 0.2vw;
+    }
+
+    to {
+        transform: scale(1.5) translateY(-1.5vw);
+        padding-left: 2.5vw;
+    }
+}
+
+@keyframes esprit-titre-stop {
+    from {
+        transform: scale(1.5) translateY(-1.5vw);
+        padding-left: 2.5vw;
+    }
+
+    to {
+        transform: scale(1) translateY(0);
+        padding-left: 0.2vw;
+    }
+}
+
+/*-----------------------------*/
+
+@keyframes esprit-image-start {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-2vw);
+    }
+}
+
+@keyframes esprit-image-stop {
+    from {
+        transform: translateX(-2vw);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
